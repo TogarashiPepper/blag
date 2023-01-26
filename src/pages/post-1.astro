@@ -1,0 +1,68 @@
+---
+import ListElem from "../components/ListElem.astro";
+import Spotify from "../components/Spotify.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Top artists 2023">
+	<main>
+		<h1>My Favorite artists</h1>
+		<p>Here's a quick list of my favorite artists so far</p>
+		<ol>
+			<ListElem
+				id="0sVcnEo2jnUnr3p7uVDZ9o"
+				title="Comethazine"
+				body="Comethazine is my favorite artist atm, he's a great lyricist and every one of his bars just hits pefectly for me"
+			/>
+			<ListElem
+				id="73OUsHnrsDlHsf5iqjvyy1"
+				title="DC the Don"
+				body="I don't have much to say about DC the Don asides from that he makes good music"
+			/>
+			<ListElem
+				id="5cvGZOop0c1AtzFOxuRd4n"
+				title="Midwxst"
+				body="Midwxst has been one of my favorites for a while, although I've been listening to him a lot less recently"
+			/>
+			<li>
+				<h3>Wu-Tang Clan</h3>
+				<p>
+					I'm not the biggest fan of them past their first album
+					although "Method Man" is one of my top 10 songs all time and
+					them rushing the stage at Jack the Rapper + ODB performing
+					while he was on the run was legendary
+					<Spotify class="spotify" id="5XLC8xoqyua4U7wJiZAWik" />
+				</p>
+			</li>
+			<ListElem
+				id="0iQzC9nxzQZ5hVWlE5Lewy"
+				title="N.W.A"
+				body="N.W.A was probably what got me into rap and “Straight outta compton“ was IMO one of best albums of all time"
+			/>
+		</ol>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 60ch;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 0;
+	}
+
+	.posts {
+		display: grid;
+		gap: 1rem;
+		padding: 5;
+	}
+</style>

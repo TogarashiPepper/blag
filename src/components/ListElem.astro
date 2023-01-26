@@ -1,0 +1,19 @@
+---
+import Spotify from "./Spotify.astro";
+
+const { title, body, id } = Astro.props;
+---
+
+<li>
+    <h3>{title}</h3>
+    <p>
+        {body}
+        <Spotify class="spotify" id={id} />
+    </p>
+</li>
+
+<style>
+.spotify {
+    margin-top: 10px;
+}
+</style>

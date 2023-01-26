@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout title="Togarashi's blog">
+	<main>
+		<h1>Welcome to my blog 👋</h1>
+		<p>
+			Welcome to my blog, it's mostly just garbage I've transcribed from my thoughts
+		</p>
+		<ul role="list" class="posts" style="width: 50vw;">
+			<Card
+				href="/post-1"
+				title="My Top Artists"
+				body="It's constantly changing"
+			/>
+		</ul>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 60ch;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 0;
+	}
+
+	.posts {
+		display: grid;
+		gap: 1rem;
+		padding: 5;
+	}
+</style>
