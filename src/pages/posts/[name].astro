@@ -1,0 +1,29 @@
+---
+import type { MarkdownInstance } from "astro";
+import PostLayout from "../../layouts/PostLayout.astro";
+
+function getFileName(x: any) {
+    return x.file.split("/").at(-1)!.split(".")[0];
+}
+
+interface FrontMatter {
+    title: string;
+    description: string;
+}
+
+export async function getStaticPaths() {
+    const posts = await Astro.glob<MarkdownInstance<FrontMatter>>(
+        "../../posts/**/*.md"
+    );
+
+    return posts.map((v) => ({
+        params: { name: v.file.split("/").at(-1)!.split(".")[0] },
+    }));
+}
+
+const { name } = Astro.params;
+const posts = await Astro.glob("../../posts/**/*.md");
+const Post = posts.find((elem) => getFileName(elem) == name)!.Content!;
+---
+
+<Post />

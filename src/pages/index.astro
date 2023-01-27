@@ -1,6 +1,18 @@
 ---
+import type { MarkdownInstance } from 'astro';
+
+interface FrontMatter {
+    title: string;
+    description: string;
+}
+
+function getFileName(x: any) {
+    return x.file.split("/").at(-1)!.split(".")[0];
+}
+
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+const posts = await Astro.glob<MarkdownInstance<FrontMatter>>("../posts/**/*.md");
 ---
 
 <Layout title="Togarashi's blog">
@@ -10,11 +22,13 @@ import Card from '../components/Card.astro';
 			Welcome to my blog, it's mostly just garbage I've transcribed from my thoughts
 		</p>
 		<ul role="list" class="posts" style="width: 50vw;">
-			<Card
-				href="/blag/post-1"
-				title="TBD"
-				body="I've got nothin"
-			/>
+			{ posts.map(p => (
+				<Card
+					href={"/blag/posts/" + getFileName(p) }
+					title={p.frontmatter.title}
+					body={p.frontmatter.description}
+				/>
+			)) }
 		</ul>
 	</main>
 </Layout>
@@ -38,6 +52,7 @@ import Card from '../components/Card.astro';
 	.posts {
 		display: grid;
 		gap: 1rem;
+		margin-top: 5px;
 		padding: 5;
 	}
 </style>
