@@ -2,7 +2,16 @@
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
+		extend: {
+			typography: ({ theme }) => ({
+				gray: {
+					css: {
+						'--tw-prose-code': 'white'
+					}
+				}
+			})
+		},
 	},
-	plugins: [],
+	important: "html",
+	plugins: [require('@tailwindcss/typography'),],
 }

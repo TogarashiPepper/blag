@@ -1,5 +1,33 @@
+@tailwind base;
+
+
 .astro-code {
     border-radius: 5px;
     padding: 10px;
     width: 70vw;
+}
+
+.markdown h1 {
+    @apply text-2xl font-semibold
+}
+
+.prose :where(code):not(:where([class~="not-prose"] *))::before {
+    content: none;
+}
+
+.prose :where(code):not(:where([class~="not-prose"] *))::after {
+    content: none;
+}
+
+code {
+    background-color: #2e384a;
+    color: #e4e8eb !important;
+
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+
+    border-radius: 3px;
+    font-weight: 300 !important;
 }

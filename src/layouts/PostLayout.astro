@@ -1,45 +1,50 @@
 ---
-import "../css/markdown.css"
-const { frontmatter } = Astro.props
+import "../css/markdown.css";
+import Layout from "./Layout.astro";
+const { frontmatter } = Astro.props;
 ---
 
-<main>
-    <h1>{ frontmatter.title }</h1>
-    <h3>{ frontmatter.description }</h3>
-    <br>
-    <article>
-        <slot />        
-    </article>
-</main>
+<Layout title={frontmatter.title}>
+    <main>
+        <article>
+            <h1>{frontmatter.title}</h1>
+            <h3>{frontmatter.description}</h3>
+        </article>
+        <br />
+        <div role="article" class="markdown prose">
+            <slot />
+        </div>
+    </main>
+</Layout>
 
 <style>
+    @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+    :root {
+        font-family: system-ui, sans-serif;
+    }
 
-:root {
-    font-family: system-ui, sans-serif;
-}
+    main {
+        margin: auto;
+        padding: 1.5rem;
+        max-width: 60ch;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
-main {
-    margin: auto;
-    padding: 1.5rem;
-    max-width: 60ch;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+    h1 {
+        font-weight: 800;
+        font-family: system-ui, sans-serif;
+        margin: 0;
+        @apply text-3xl;
+    }
 
-h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    font-family: system-ui, sans-serif;
-    margin: 0;
-}
-
-h3 {
-    font-weight: 600;
-    font-family: system-ui, sans-serif;
-    margin: 0;
-}
+    h3 {
+        font-weight: 600;
+        font-family: system-ui, sans-serif;
+        margin: 0;
+        @apply text-xl;
+    }
 </style>
