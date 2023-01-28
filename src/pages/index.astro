@@ -4,6 +4,7 @@ import type { MarkdownInstance } from 'astro';
 interface FrontMatter {
     title: string;
     description: string;
+	order: number
 }
 
 function getFileName(x: any) {
@@ -12,17 +13,17 @@ function getFileName(x: any) {
 
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-const posts = await Astro.glob<MarkdownInstance<FrontMatter>>("../posts/**/*.md");
+const posts = await Astro.glob<FrontMatter>("../posts/**/*.md");
 ---
 
-<Layout title="Togarashi's blog">
+<Layout center={false} title="Togarashi's blog">
 	<main>
 		<h1>Welcome to my blog 👋</h1>
 		<p>
 			Welcome to my blog, it's mostly just garbage I've transcribed from my thoughts
 		</p>
 		<ul role="list" class="posts" style="">
-			{ posts.map(p => (
+			{ posts.sort((a, b) => b.frontmatter.order - a.frontmatter.order).map(p => (
 				<Card
 					href={"/blag/posts/" + getFileName(p) }
 					title={p.frontmatter.title}
