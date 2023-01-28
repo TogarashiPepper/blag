@@ -4,7 +4,7 @@ import Layout from "./Layout.astro";
 const { frontmatter } = Astro.props;
 ---
 
-<Layout title={frontmatter.title}>
+<Layout center={true} title={frontmatter.title}>
     <main>
         <article>
             <h1>{frontmatter.title}</h1>
@@ -32,6 +32,22 @@ const { frontmatter } = Astro.props;
     @media only screen and (max-width: 450px) {
         main {
             max-width: 400px;
+            padding: 0;
+            margin: 10px;
+        }
+    }
+
+    @media only screen and (max-width: 400px) {
+        main {
+            max-width: 350px;
+            padding: 0;
+            margin: 10px;
+        }
+    }
+
+    @media only screen and (max-width: 300px) {
+        main {
+            max-width: 250px;
             padding: 0;
             margin: 10px;
         }
