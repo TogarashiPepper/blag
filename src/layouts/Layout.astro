@@ -15,7 +15,7 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="center">
 		<slot />
 	</body>
 </html>
@@ -23,25 +23,22 @@ const { title } = Astro.props;
 <style is:global>
 	:root {
 		--accent: 5, 97, 255;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #7a2df7 30%, white 60%);
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			#7a2df7 30%,
+			white 60%
+		);
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
+		background-color: #f6f6f6;
 	}
 	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
+		font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+			DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
 	}
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
+
 	h1 {
 		font-size: 3rem;
 		font-weight: 800;
@@ -52,5 +49,12 @@ const { title } = Astro.props;
 		display: grid;
 		gap: 1rem;
 		padding: 5;
+	}
+
+	.center {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 100vh;
 	}
 </style>

@@ -27,10 +27,14 @@ const { frontmatter } = Astro.props;
     main {
         padding: 1.5rem;
         max-width: 60ch;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    }
+
+    @media only screen and (max-width: 450px) {
+        main {
+            max-width: 400px;
+            padding: 0;
+            margin: 10px;
+        }
     }
 
     h1 {
