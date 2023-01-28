@@ -21,7 +21,7 @@ const posts = await Astro.glob<MarkdownInstance<FrontMatter>>("../posts/**/*.md"
 		<p>
 			Welcome to my blog, it's mostly just garbage I've transcribed from my thoughts
 		</p>
-		<ul role="list" class="posts" style="width: 50vw;">
+		<ul role="list" class="posts" style="">
 			{ posts.map(p => (
 				<Card
 					href={"/blag/posts/" + getFileName(p) }
