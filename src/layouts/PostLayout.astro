@@ -7,7 +7,7 @@ const { frontmatter } = Astro.props;
 <Layout center={true} title={frontmatter.title}>
     <main>
         <article>
-            <h1>{frontmatter.title}</h1>
+            <h1><a href="/blag/">&larr;</a> {frontmatter.title}</h1>
             <h3>{frontmatter.description}</h3>
         </article>
         <br />
