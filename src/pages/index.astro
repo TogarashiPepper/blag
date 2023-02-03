@@ -13,7 +13,7 @@ function getFileName(x: any) {
 
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-const posts = await Astro.glob<FrontMatter>("../posts/**/*.md");
+const posts = await Astro.glob<FrontMatter>("../posts/**/*.{md,mdx}");
 ---
 
 <Layout center={false} title="Togarashi's blog">

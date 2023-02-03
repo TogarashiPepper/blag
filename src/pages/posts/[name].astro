@@ -13,7 +13,7 @@ interface FrontMatter {
 
 export async function getStaticPaths() {
     const posts = await Astro.glob<MarkdownInstance<FrontMatter>>(
-        "../../posts/**/*.md"
+        "../../posts/**/*.{md,mdx}"
     );
 
     return posts.map((v) => ({
@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 }
 
 const { name } = Astro.params;
-const posts = await Astro.glob("../../posts/**/*.md");
+const posts = await Astro.glob("../../posts/**/*.{md,mdx}");
 const Post = posts.find((elem) => getFileName(elem) == name)!.Content!;
 ---
 

@@ -27,29 +27,13 @@ const { frontmatter } = Astro.props;
     main {
         padding: 1.5rem;
         max-width: 60ch;
+        padding: 0;
+        margin: 10px;
     }
 
-    @media only screen and (max-width: 450px) {
+    @media only screen and (max-width: 600px) {
         main {
-            max-width: 400px;
-            padding: 0;
-            margin: 10px;
-        }
-    }
-
-    @media only screen and (max-width: 400px) {
-        main {
-            max-width: 350px;
-            padding: 0;
-            margin: 10px;
-        }
-    }
-
-    @media only screen and (max-width: 300px) {
-        main {
-            max-width: 250px;
-            padding: 0;
-            margin: 10px;
+            max-width: calc(100vw - 25px);
         }
     }
 
