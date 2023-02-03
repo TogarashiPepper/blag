@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import fs from "node:fs"
 
 // https://astro.build/config
 import tailwind from "@astrojs/tailwind";
