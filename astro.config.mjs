@@ -11,7 +11,7 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   site: 'https://togarashipepper.github.io',
   base: '/blag',
-  integrations: [tailwind(), mdx()],
+  integrations: [tailwind()],
   markdown: {
     syntaxHighlight: 'shiki',
     shikiConfig: {
